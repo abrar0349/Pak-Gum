@@ -1,0 +1,83 @@
+.brand-area {
+    width: 100%;
+    background: #ffffff;
+    padding: 18px 20px;
+}
+
+.brand-container {
+    max-width: 1200px;
+    margin: auto;
+
+    /* border: 2px solid #087a08; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 22px;
+}
+
+.logo img {
+    /* border:2px solid red; */
+    width: 50px;
+    height: auto;
+    display: block;
+}
+
+.company-name {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    /* border: 2px solid red; */
+}
+
+.company-name h1 {
+    color: #087a08;
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.company-name span {
+    color: #087a08;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+@media (max-width: 576px) {
+   .logo img {
+    /* border:2px solid green; */
+    width: 40px;
+    /* height: auto; */
+    /* display: block; */
+  }
+  .company-name h1 {
+    /* color: #087a08; */
+    font-size: 15px;
+    /* font-weight: 900; */
+}
+
+.company-name span {
+    /* color: #087a08; */
+    font-size: 12px;
+    /* font-weight: 800; */
+}
+}
+
+@media (min-width: 992px) {
+  .logo img {
+    /* border:2px solid green; */
+    width: 105px;
+    /* height: auto; */
+    /* display: block; */
+  }
+  .company-name h1 {
+    /* color: #087a08; */
+    font-size: 40px;
+    /* font-weight: 900; */
+}
+
+.company-name span {
+    /* color: #087a08; */
+    font-size: 30px;
+    /* font-weight: 800; */
+}
+}
