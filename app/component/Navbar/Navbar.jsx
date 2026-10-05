@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   Home,
   Users,
@@ -9,8 +10,6 @@ import {
   FileText,
   Package,
   Phone,
-  Search,
-  ChevronDown,
   Menu,
   X,
 } from "lucide-react";
@@ -19,6 +18,7 @@ import "./Navbar.css";
 
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   return (
     <nav className="navbar">
@@ -36,45 +36,42 @@ export default function Navbar() {
         {/* Navigation Links */}
         <div className={`nav-links ${menuOpen ? "open" : ""}`}>
 
-          <Link href="/" className="nav-link active">
-            <Home size={19} />
-            <span>Home</span>
+          <Link 
+            href="/" 
+            className={`nav-link ${pathname === "/" ? "active" : ""}`}>
+              <Home size={19} />
+              <span>Home</span>
           </Link>
 
-          <Link href="/about" className="nav-link">
+          <Link href="/about" className={`nav-link ${pathname === "/about" ? "active" : ""}`}>
             <Users size={19} />
             <span>About</span>
           </Link>
 
-          <Link href="/facilities" className="nav-link">
+          <Link href="/facilities" className={`nav-link ${pathname === "/facilities" ? "active" : ""}`}>
             <Factory size={19} />
             <span>Facilities</span>
           </Link>
 
-          <Link href="/certifications" className="nav-link">
+          <Link href="/certifications" className={`nav-link ${pathname === "/certifications" ? "active" : ""}`}>
             <Award size={19} />
             <span>Certifications</span>
           </Link>
 
-          <Link href="/policies" className="nav-link">
+          <Link href="/policies" className={`nav-link ${pathname === "/policies" ? "active" : ""}`}>
             <FileText size={19} />
             <span>Policies</span>
           </Link>
 
-          <Link href="/products" className="nav-link">
+          <Link href="/products" className={`nav-link ${pathname === "/products" ? "active" : ""}`}>
             <Package size={19} />
             <span>Products</span>
           </Link>
 
-          <Link href="/contact" className="nav-link">
+          <Link href="/contact" className={`nav-link ${pathname === "/contact" ? "active" : ""}`}>
             <Phone size={19} />
             <span>Contact</span>
           </Link>
-
-          {/* Search */}
-          <button className="search-btn">
-            <Search size={20} />
-          </button>
 
         </div>
 
