@@ -1,6 +1,9 @@
 import Footer from "@/app/component/Footer/Footer";
 import Header from "@/app/component/Headers/Header";
 import Navbar from "@/app/component/Navbar/Navbar";
+// import AboutProduct from "@/app/component/Home/AboutProduct";
+import About from "@/app/component/Home/About";
+import Product from "@/app/component/Home/Product";
 
 
 export default function Home() {
@@ -9,6 +12,9 @@ export default function Home() {
        <Header />
        <Navbar />
        <Footer />
+       <About />
+        <Product />
+       {/* <AboutProduct /> */}
     </div>
   );
 }
