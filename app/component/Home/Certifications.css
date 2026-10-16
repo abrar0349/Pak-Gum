@@ -1,0 +1,195 @@
+.pg-section {
+  --green: #08752a;
+  --dark-green: #064b20;
+  --light-green: #eff7ef;
+  --text: #5d6961;
+
+  width: 100%;
+  padding: 60px clamp(18px, 5vw, 75px);
+  background: #fff;
+  color: var(--dark-green);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pg-section * {
+  box-sizing: border-box;
+}
+
+.pg-label {
+  display: inline-block;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+/* Certifications Container */
+.pg-certifications-container {
+  max-width: 1250px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.pg-cert-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  animation: pg-enter 0.8s 0.15s ease both;
+}
+
+.pg-cert-header h2 {
+  color: var(--dark-green);
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  font-weight: 800;
+  margin: 0 0 15px;
+}
+
+.pg-description {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.95;
+  margin: 0;
+}
+
+/* Grid for 4 certificates */
+.pg-cert-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
+  animation: pg-enter 0.8s 0.25s ease both;
+}
+
+.pg-cert-card {
+  background: #fff;
+  border: 2px solid #08752a30;
+  border-radius: 16px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.pg-cert-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--green);
+  box-shadow: 0 10px 25px #08752a15;
+}
+
+.pg-cert-img-box {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 10px;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1.2 / 1;
+}
+
+.pg-cert-img-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.pg-cert-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  text-align: center;
+}
+
+.pg-cert-info strong {
+  font-size: 14px;
+  color: var(--dark-green);
+  font-weight: 700;
+}
+
+.pg-cert-info small {
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+/* Footer Button */
+.pg-cert-footer {
+  text-align: center;
+  animation: pg-enter 0.8s 0.35s ease both;
+}
+
+.pg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  padding: 14px 28px;
+  border-radius: 9px;
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pg-button span {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.pg-button:hover {
+  background: var(--dark-green);
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px #08752a30;
+}
+
+.pg-button:hover span {
+  transform: translateX(5px);
+}
+
+/* Animations */
+@keyframes pg-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .pg-cert-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .pg-cert-grid {
+    grid-template-columns: 1fr;
+  }
+  .pg-section {
+    padding: 38px 15px;
+  }
+  .pg-cert-header h2 {
+    font-size: 29px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .pg-section *,
+  .pg-section *::before,
+  .pg-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

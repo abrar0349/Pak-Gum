@@ -1,12 +1,14 @@
 import "./About.css";
+import Image from '@/app/Images/About.jpg'
 
 export default function About() {
   return (
     <main className="pg-section">
       <section className="pg-about">
+
         <div className="pg-factory">
           <img
-            src="/images/factory.jpg"
+            src={Image.src}
             alt="Pakistan Gum Industries factory"
           />
 
@@ -63,6 +65,7 @@ export default function About() {
             Discover Our Company <span>→</span>
           </a>
         </div>
+        
       </section>
     </main>
   );

@@ -1,0 +1,247 @@
+.pg-section {
+  --green: #08752a;
+  --dark-green: #064b20;
+  --light-green: #eff7ef;
+  --text: #5d6961;
+
+  width: 100%;
+  padding: 60px clamp(18px, 5vw, 75px);
+  background: #fff;
+  color: var(--dark-green);
+  overflow: hidden;
+  box-sizing: border-box;
+}
+
+.pg-section * {
+  box-sizing: border-box;
+}
+
+.pg-label {
+  display: inline-block;
+  color: var(--green);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 3px;
+  margin-bottom: 14px;
+}
+
+/* Contact section layout */
+.pg-contact {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(30px, 5vw, 70px);
+  max-width: 1250px;
+  margin: 0 auto;
+}
+
+.pg-contact-img-box {
+  position: relative;
+  padding: 7px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #078331, #b9e3c1);
+  animation: pg-enter 0.8s 0.15s ease both;
+}
+
+.pg-contact-img-box > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1.15 / 1;
+  object-fit: cover;
+  border-radius: 16px;
+  transform: scale(0.985);
+  cursor: pointer;
+  transition: transform 0.4s ease;
+}
+
+.pg-contact-img-box:hover > img {
+  transform: scale(1);
+}
+
+.pg-quick-badge {
+  position: absolute;
+  left: 23px;
+  bottom: 23px;
+  display: flex;
+  align-items: center;
+  gap: 13px;
+  padding: 14px 19px;
+  border-radius: 13px;
+  background: #fff;
+  box-shadow: 0 8px 25px #00000018;
+}
+
+.pg-year-icon {
+  color: var(--green);
+  font-size: 32px;
+}
+
+.pg-quick-badge div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pg-quick-badge small {
+  color: var(--text);
+  font-size: 12px;
+}
+
+.pg-quick-badge strong {
+  font-size: 18px;
+  color: var(--dark-green);
+}
+
+.pg-contact-text {
+  animation: pg-enter 0.8s 0.25s ease both;
+}
+
+.pg-contact-text h2 {
+  color: var(--dark-green);
+  font-size: clamp(27px, 3vw, 39px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+  font-weight: 800;
+  margin: 0 0 20px;
+}
+
+.pg-description {
+  color: var(--text);
+  font-size: 15px;
+  line-height: 1.95;
+  margin: 0;
+}
+
+/* Contact info highlights list */
+.pg-contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin: 27px 0 30px;
+}
+
+.pg-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-width: 0;
+}
+
+.pg-icon {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #eaf6eb;
+  border: 1px solid #cce8d0;
+  color: var(--green);
+  font-size: 18px;
+  transition: transform 0.3s ease;
+}
+
+.pg-info-item:hover .pg-icon {
+  transform: scale(1.12) rotate(-8deg);
+}
+
+.pg-info-item div {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pg-info-item strong {
+  font-size: 13px;
+  color: var(--dark-green);
+}
+
+.pg-info-item small {
+  color: var(--text);
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+/* Button style */
+.pg-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 17px;
+  padding: 14px 22px;
+  border-radius: 9px;
+  background: var(--green);
+  color: white;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 700;
+  transition: background 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.pg-button span {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.pg-button:hover {
+  background: var(--dark-green);
+  transform: translateY(-3px);
+  box-shadow: 0 9px 20px #08752a30;
+}
+
+.pg-button:hover span {
+  transform: translateX(5px);
+}
+
+/* Animations */
+@keyframes pg-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .pg-contact {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  .pg-contact-img-box,
+  .pg-contact-text {
+    width: 100%;
+    max-width: 650px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 480px) {
+  .pg-section {
+    padding: 38px 15px;
+  }
+  .pg-contact-text h2 {
+    font-size: 29px;
+  }
+  .pg-description {
+    font-size: 14px;
+  }
+  .pg-quick-badge {
+    left: 14px;
+    bottom: 14px;
+    padding: 10px 13px;
+  }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .pg-section *,
+  .pg-section *::before,
+  .pg-section *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

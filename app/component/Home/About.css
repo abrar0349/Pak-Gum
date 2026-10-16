@@ -27,6 +27,7 @@
 
 /* About section */
 .pg-about {
+  /* border: 2px solid green; */
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -52,10 +53,13 @@
   transition: transform 0.4s ease;
 }
 
-.pg-factory:hover > img {
+.pg-factory > img {
   transform: scale(0.985);
+  cursor: pointer;
 }
-
+.pg-factory:hover > img {
+  transform: scale(1);
+}
 .pg-year {
   position: absolute;
   left: 23px;

@@ -1,5 +1,8 @@
 import "./Product.css";
-import GuarSeedImage from "@/app/images/Guar.jpg";
+import GuarSeedImage from "@/app/Images/Guar.jpg";
+import GuarSplitsImage from "@/app/Images/Split.jpg";
+import GuarMealImage from "@/app/Images/Meal.jpg";
+import GuarPowderImage from "@/app/Images/Powder.jpg";
 
 const products = [
   {
@@ -10,17 +13,17 @@ const products = [
   {
     name: "Guar Splits",
     description: "Carefully processed premium guar splits.",
-    image: "/images/guar-splits.jpg",
+    image: GuarSplitsImage,
   },
   {
     name: "Guar Gum Powder",
     description: "Fine guar gum powder for multiple applications.",
-    image: "/images/guar-powder.jpg",
+    image: GuarPowderImage,
   },
   {
     name: "Guar Meal",
     description: "Quality guar meal produced with care.",
-    image: "/images/guar-meal.jpg",
+    image: GuarMealImage,
   },
 ];
 
