@@ -1,0 +1,79 @@
+
+.intro {
+  margin-bottom: 26px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 18px;
+  overflow: hidden;
+}
+
+.fsscLogo {
+  display: block;
+  width: min(100%, 490px);
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.description {
+  max-height: 3rem;
+  overflow: hidden;
+  transition: max-height 0.3s ease;
+}
+
+.description.expanded {
+  max-height: 1000px;
+}
+
+.intro p {
+  margin: 0 0 8px;
+  color: #566477;
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.toggleButton {
+  margin-top: 5px;
+  padding: 5px 0;
+  border: none;
+  background: transparent;
+  color: #16712b;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.toggleButton:hover {
+  color: #0b4518;
+  text-decoration: underline;
+}
+
+@media (max-width: 700px) {
+  .intro p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .fsscLogo {
+    width: min(100%, 420px);
+  }
+
+  /* .description {
+    max-height: 3rem;
+  }
+
+  .description.expanded {
+    max-height: 1000px;
+  } */
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .description {
+    transition: none;
+  }
+}

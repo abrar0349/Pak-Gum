@@ -1,0 +1,124 @@
+.pg-section {
+  --green: #08752a;
+  --dark-green: #064b20;
+  width: 100%;
+  padding: 40px clamp(18px, 5vw, 75px);
+  background: #fff;
+  box-sizing: border-box;
+}
+
+.pg-section * {
+  box-sizing: border-box;
+}
+
+/* Slider Container */
+.pg-slider-container {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Slider Box Frame matching About/Contact style */
+.pg-slider-box {
+  position: relative;
+  padding: 7px;
+  border-radius: 22px;
+  background: linear-gradient(135deg, #078331, #b9e3c1);
+  animation: pg-enter 0.8s ease both;
+  overflow: hidden;
+}
+
+.pg-slider-box > img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 16px;
+  transition: opacity 0.5s ease-in-out;
+}
+
+/* Arrow Buttons */
+.pg-arrow-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--dark-green);
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, color 0.3s ease, transform 0.3s ease;
+  z-index: 10;
+}
+
+.pg-arrow-btn:hover {
+  background: var(--green);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.pg-prev {
+  left: 20px;
+}
+
+.pg-next {
+  right: 20px;
+}
+
+/* Dots Indicator */
+.pg-dots-container {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 10;
+}
+
+.pg-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.6);
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.pg-dot.active {
+  background: var(--green);
+  transform: scale(1.2);
+}
+
+/* Animation */
+@keyframes pg-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .pg-arrow-btn {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+  .pg-prev {
+    left: 12px;
+  }
+  .pg-next {
+    right: 12px;
+  }
+}

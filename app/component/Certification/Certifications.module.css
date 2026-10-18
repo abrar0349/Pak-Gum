@@ -1,0 +1,224 @@
+
+.certifications {
+  padding: 55px 24px 75px;
+  background: #ffffff;
+  color: #26372b;
+}
+
+.container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  margin-bottom: 24px;
+}
+
+.eyebrow {
+  display: block;
+  margin-bottom: 8px;
+  color: #357b42;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+}
+
+.sectionTitle h2 {
+  margin: 0;
+  color: #126b21;
+  font-size: 30px;
+  font-weight: 750;
+}
+
+.intro {
+  margin-bottom: 26px;
+}
+
+.logoWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 0 0 18px;
+  overflow: hidden;
+}
+
+.fsscLogo {
+  display: block;
+  width: min(100%, 490px);
+  height: auto;
+  object-fit: contain;
+  object-position: left center;
+}
+
+.intro p {
+  margin: 0 0 8px;
+  color: #566477;
+  font-size: 15px;
+  line-height: 1.75;
+  text-align: justify;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  align-items: start;
+}
+
+.card {
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid #d5e4d2;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 5px 18px rgb(21 75 31 / 6%);
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #83b88a;
+  box-shadow: 0 12px 28px rgb(21 75 31 / 13%);
+}
+
+.imageWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 15px;
+  background: #f5f8f4;
+  border-bottom: 1px solid #e3ebe1;
+}
+
+.certificateImage {
+  display: block;
+  width: 100%;
+  height: 320px;
+  object-fit: contain;
+  background: #ffffff;
+  transition: transform 0.3s ease;
+}
+
+.card:hover .certificateImage {
+  transform: scale(1.02);
+}
+
+.cardContent {
+  padding: 20px;
+}
+
+.category {
+  color: #388047;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.cardContent h3 {
+  margin: 9px 0;
+  color: #185a29;
+  font-size: 21px;
+}
+
+.cardContent p {
+  margin: 0 0 17px;
+  color: #69766b;
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.viewLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #16712b;
+  font-size: 13px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.viewLink:hover {
+  color: #0b4518;
+  text-decoration: underline;
+}
+
+.footerNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 11px;
+  margin-top: 28px;
+  padding: 17px;
+  border: 1px solid #dcebd9;
+  border-radius: 8px;
+  background: #f7faf5;
+}
+
+.check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background: #e0f0df;
+  color: #237533;
+  font-weight: 800;
+}
+
+.footerNote p {
+  margin: 0;
+  color: #49604d;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+@media (max-width: 700px) {
+  .certifications {
+    padding: 38px 16px 50px;
+  }
+
+  .sectionTitle h2 {
+    font-size: 27px;
+  }
+
+  .intro p {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .fsscLogo {
+    width: min(100%, 420px);
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .certificateImage {
+    height: 340px;
+  }
+
+  .cardContent {
+    padding: 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card,
+  .certificateImage {
+    transition: none;
+  }
+
+  .card:hover,
+  .card:hover .certificateImage {
+    transform: none;
+  }
+}

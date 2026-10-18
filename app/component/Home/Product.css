@@ -10,6 +10,7 @@
   color: var(--dark-green);
   overflow: hidden;
   box-sizing: border-box;
+  /* border: 1px solid red; */
 }
 
 .pg-section * {

@@ -31,6 +31,7 @@ export default function Products() {
   return (
     <main className="pg-section">
       <section className="pg-products">
+        
         <div className="pg-heading">
           <span className="pg-label">OUR PRODUCTS</span>
           <h2>Quality Guar Products</h2>

@@ -8,16 +8,17 @@ import HalalImage from '@/app/Images/halal-m.jpg';
 export default function Certifications() {
   return (
     <main className="pg-section">
+
       <section className="pg-certifications-container">
 
         {/* Section Header */}
-        <div className="pg-cert-header">
+        {/* <div className="pg-cert-header">
           <span className="pg-label">OUR CERTIFICATIONS</span>
           <h2>Globally recognized quality standards.</h2>
           <p className="pg-description">
             Pakistan Gum Industries (Pvt.) Ltd. maintains strict quality control and international compliance. Our facilities are certified by leading global auditing bodies to ensure premium guar products worldwide.
           </p>
-        </div>
+        </div> */}
 
         {/* Certificates Grid */}
         <div className="pg-cert-grid">
@@ -69,13 +70,14 @@ export default function Certifications() {
         </div>
 
         {/* Action Button */}
-        <div className="pg-cert-footer">
+        {/* <div className="pg-cert-footer">
           <a href="/certifications" className="pg-button">
             View Quality Policies <span>→</span>
           </a>
-        </div>
+        </div> */}
 
       </section>
+      
     </main>
   );
 }
