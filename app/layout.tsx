@@ -36,7 +36,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         
         <main className="flex-1">{children}</main>
 
-        <Certifications />
+        {/* <Certifications /> */}
         <Footer />
       </body>
     </html>

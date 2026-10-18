@@ -72,6 +72,7 @@ console.log(certificates)
                   <span aria-hidden="true"> ↗</span>
                 </a>
               </div>
+              
             </article>
           ))}
         </div>
