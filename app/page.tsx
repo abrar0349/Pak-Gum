@@ -8,7 +8,7 @@ import Product from "@/app/component/Home/Product";
 import HeroSlider from "@/app/component/Home/HeroSlider";
 // import Certifications from "@/app/component/Home/Certification";
 import Certifications from "@/app/component/Certification/Certifications";
-import Policies from "@/app/component/Policy/Policies";
+
 
 
 export default function Home() {
@@ -24,7 +24,7 @@ export default function Home() {
         {/* <HeroSlider />  */}
        {/* <AboutProduct /> */}
        {/* <Certifications /> */}
-       <Policies />
+       
     </div>
   );
 }

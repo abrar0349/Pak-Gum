@@ -28,10 +28,12 @@ const policyIcons = {
 };
 
 export default function PolicyCard({ policy }) {
+
   const Icon = policyIcons[policy.id] || ShieldCheck;
 
   return (
     <article className={styles.policyCard} id={policy.id}>
+
       <div className={styles.cardBanner}>
         <div className={styles.cardBannerLeft}>
           <div className={styles.policyIcon}>
@@ -46,6 +48,7 @@ export default function PolicyCard({ policy }) {
               </span>
             )}
           </div>
+
         </div>
       </div>
 
@@ -82,6 +85,7 @@ export default function PolicyCard({ policy }) {
             ))}
           </div>
         )}
+
       </div>
     </article>
   );
