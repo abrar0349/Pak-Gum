@@ -7,28 +7,15 @@
   color: #333333;
 }
 
-/* Main Heading */
-.quality-main-heading {
-  font-size: 22px;
-  font-weight: bold;
-  color: #006600;
-  margin-bottom: 24px;
-}
 
 /* Section Blocks */
 .quality-section-block {
   margin-bottom: 32px;
 }
 
-.quality-sub-heading {
-  font-size: 17px;
-  font-weight: bold;
-  color: #006600;
-  margin-bottom: 12px;
-}
 
 /* Bullet Points List */
-.quality-bullet-list {
+/* .quality-bullet-list {
   list-style-type: disc;
   margin-left: 20px;
   margin-bottom: 20px;
@@ -39,7 +26,7 @@
   color: #444444;
   margin-bottom: 6px;
   line-height: 1.5;
-}
+} */
 
 /* Single Diagram Image Wrapper */
 .quality-image-wrapper {
@@ -57,45 +44,7 @@
   object-fit: contain;
 }
 
-/* Lab Outer Box with Green Border */
-.lab-outer-box {
-  border: 2px solid #006600;
-  background-color: #ffffff;
-  margin-top: 20px;
-  overflow: hidden;
-}
 
-/* Lab Images Grid */
-.lab-images-grid {
-  display: flex;
-  gap: 15px;
-  padding: 15px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
 
-.lab-image-item {
-  flex: 1;
-  min-width: 280px;
-  height: 220px;
-  background-color: #f3f4f6;
-  overflow: hidden;
-}
 
-.lab-image-item img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
 
-/* Lab Green Banner Title */
-.lab-banner-title {
-  background-color: #006600;
-  color: #ffffff;
-  text-align: center;
-  padding: 10px 16px;
-  font-size: 18px;
-  font-weight: 500;
-  letter-spacing: 0.025em;
-}

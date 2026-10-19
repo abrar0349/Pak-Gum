@@ -1,0 +1,14 @@
+/* Quality Control Bullet Points */
+.quality-bullet-list {
+  list-style-type: disc;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+/* Individual Bullet Point */
+.quality-bullet-list li {
+  font-size: 14px;
+  color: #444444;
+  margin-bottom: 6px;
+  line-height: 1.5;
+}

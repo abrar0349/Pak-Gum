@@ -2,12 +2,15 @@
 import React from 'react';
 import './HandlingSection.css'; 
 import { Card } from '../Component/Card';
+import Heading from '../Component/Heading'
 import h1 from '../../Images/facilities/h1.jpg'
 import h2 from '../../Images/facilities/h2.jpg'
 import h3 from '../../Images/facilities/h3.jpg'
 import h4 from '../../Images/facilities/h4.jpg'
 import h5 from '../../Images/facilities/h5.jpg'
 import h6 from '../../Images/facilities/h6.jpg'
+import CardGrid from '../Component/CardGrid';
+import Main_heading from '../Component/Main_heading'
 
 
 
@@ -27,48 +30,28 @@ export default function HandlingSection() {
   ];
 
   return (
+
     <div className="handling-container">
       {/* Main Heading */}
-      <h1 className="handling-main-heading">
-        Handling, Packaging and Storage
-      </h1>
+      <Main_heading Content="Handling, Packaging and Storage" />
 
       {/* Handling Section */}
       <div className="handling-section-block">
 
-        <h2 className="handling-sub-heading">Handling</h2>
-
-        <div className="handling-grid">
-          {handlingData.map((item) => (
-            <Card
-              key={item.id}
-              imageSrc={item.imageSrc}
-              altText={item.altText}
-              title={item.title}
-            />
-          ))}
-        </div>
+        <Heading Content="Handling" />
+        <CardGrid arr={handlingData} />
 
       </div>
 
       {/* Packaging Types Section */}
       <div className="handling-section-block">
 
-        <h2 className="handling-sub-heading">Packaging Types</h2>
-
-        <div className="handling-grid">
-          {packagingData.map((item) => (
-            <Card
-              key={item.id}
-              imageSrc={item.imageSrc}
-              altText={item.altText}
-              title={item.title}
-            />
-          ))}
-        </div>
+        <Heading Content="Packaging Types" />
+        <CardGrid arr={packagingData} />
 
       </div>
       
     </div>
+
   );
 }
