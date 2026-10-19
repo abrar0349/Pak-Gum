@@ -2,6 +2,8 @@ import './CardGrid.css';
 import { Card } from './Card';
 
 
+
+
 function CardGrid({ arr }) {
   return (
         <div className="handling-grid">

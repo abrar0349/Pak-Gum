@@ -1,0 +1,28 @@
+.backup-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Layout items ke darmiyan proper space */
+}
+
+/* Single Diagram Image Wrapper */
+.backup-image-wrapper {
+  border: 2px solid green;
+  min-width: 100%;
+  max-width: 50%;
+  max-height: 50%;
+  margin: 20px 0;
+  display: flex;
+  justify-content: flex-start;
+  overflow-x: auto;
+}
+
+.backup-process-img {
+  min-width: 100%;
+  aspect-ratio: 1/0.3;
+}
+

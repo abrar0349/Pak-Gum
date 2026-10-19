@@ -20,6 +20,7 @@ import "./Nnavbar.css";
 export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
+  const [productsDropdownOpen, setProductsDropdownOpen] = useState(false);
   const pathname = usePathname();
 
   const facilitiesList = [
@@ -32,6 +33,14 @@ export default function Navbar() {
     { name: "Supervisory Control And Data Acquisition (SCADA) system", href: "/facilities/scada-system" },
     { name: "Backup Power Generation and SNG Systems", href: "/facilities/backup-power" },
     { name: "Fire fighting", href: "/facilities/fire-fighting" },
+  ];
+
+  const productsList = [
+    { name: "Raw Material", href: "/products/raw-material" },
+    { name: "Guar Splits", href: "/products/guar-splits" },
+    { name: "Guar Gum Powder (Food Grade)", href: "/products/guar-gum-food-grade" },
+    { name: "Guar Protein Extract (Guar Meal)", href: "/products/guar-protein-extract" },
+    { name: "Guar Gum Powder (Industrial Grade)", href: "/products/guar-gum-industrial-grade" },
   ];
 
   return (
@@ -100,16 +109,38 @@ export default function Navbar() {
             <span>Policies</span>
           </Link>
 
-          <Link href="/products" className={`nav-link ${pathname === "/products" ? "active" : ""}`}>
-            <Package size={19} />
-            <span>Products</span>
-          </Link>
+          {/* Products Dropdown */}
+          <div 
+            className="dropdown-container"
+            onMouseEnter={() => setProductsDropdownOpen(true)}
+            onMouseLeave={() => setProductsDropdownOpen(false)}
+          >
+            <Link 
+              href="/products" 
+              className={`nav-link ${pathname.startsWith("/products") ? "active" : ""}`}
+            >
+              <Package size={19} />
+              <span>Products</span>
+              <ChevronDown size={15} className={`chevron-icon ${productsDropdownOpen ? "rotate" : ""}`} />
+            </Link>
+
+            {productsDropdownOpen && (
+              <div className="dropdown-menu">
+                {productsList.map((item, index) => (
+                  <Link key={index} href={item.href} className="dropdown-item">
+                    {item.name}
+                  </Link>
+                ))}
+              </div>
+            )}
+          </div>
 
           <Link href="/contact" className={`nav-link ${pathname === "/contact" ? "active" : ""}`}>
             <Phone size={19} />
             <span>Contact</span>
           </Link>
         </div>
+        
       </div>
     </nav>
   );

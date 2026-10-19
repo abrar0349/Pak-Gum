@@ -40,14 +40,15 @@ export default function QualitySection() {
       {/* Raw Material Inspection Section */}
       <div className="quality-section-block">
 
-        <h2 className="quality-sub-heading">Raw material Inspection</h2>
-        
-        <ul className="quality-bullet-list">
-          <li>Annual surveys of guar growing areas, and daily contact with traders</li>
-          <li>Supplier evaluation and monitoring</li>
-          <li>Inspected at unloading (100% sampling)</li>
-          <li>All inspection/rejection is recorded and is the basis of supplier performance</li>
-        </ul>
+        {/* <h2 className="quality-sub-heading"></h2> */}
+        <Heading Content={'Raw material Inspection'} />  
+        <BulletList items={[
+          "Annual surveys of guar growing areas, and daily contact with traders",
+          "Supplier evaluation and monitoring",
+          "Inspected at unloading (100% sampling)",
+          "All inspection/rejection is recorded and is the basis of supplier performance",
+        ]} />      
+   
 
         {/* Single Image Banner for Sampling Process Flow */}
         <div className="quality-image-wrapper">
