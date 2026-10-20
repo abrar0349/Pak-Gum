@@ -1,0 +1,10 @@
+.product_container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333333;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* Layout items ke darmiyan proper space */
+}

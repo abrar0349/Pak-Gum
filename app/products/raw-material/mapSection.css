@@ -1,0 +1,55 @@
+/* Card Outer Border Container */
+.map-card-container {
+  width: 100%;
+  max-width: 900px;
+  margin: 20px auto;
+  border: 1px solid #006600; /* Dark Green Border */
+  background-color: #ffffff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+/* Green Title Header Box */
+.map-card-header {
+  background-color: #006600; /* Dark Green matching the website */
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 15px;
+}
+
+.map-card-header h2 {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  font-family: Arial, sans-serif;
+}
+
+/* Image Container Area */
+.map-card-body {
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ffffff;
+}
+
+/* Map Image Styling */
+.map-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  max-height: 500px; /* Adjust as needed */
+}
+
+/* Responsive View for Small Screens */
+@media (max-width: 600px) {
+  .map-card-header h2 {
+    font-size: 1rem;
+  }
+
+  .map-card-body {
+    padding: 5px;
+  }
+}
