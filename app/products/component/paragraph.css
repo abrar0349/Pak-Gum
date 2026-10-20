@@ -1,8 +1,45 @@
-.paragraph{
-  color: #444444;
+.paragraph-container {
+  margin: 0;
+}
+
+.paragraph {
+  color: gray;
   font-size: 1.05rem;
   line-height: 1.7; 
   text-align: justify;
   margin: 0;
-  letter-spacing: 0.2px;color: gray;
+  letter-spacing: 0.2px;
+}
+
+/* Desktop Par Button Hamesha Hide Rahega */
+.read-more-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: #007bff;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 0;
+  margin-top: 6px;
+  font-size: 0.95rem;
+}
+
+.read-more-btn:hover {
+  text-decoration: underline;
+}
+
+/* 📱 Mobile Screen Settings (768px se choti screens) */
+@media (max-width: 768px) {
+  /* Button sirf mobile par dikhega */
+  .read-more-btn {
+    display: inline-block;
+  }
+
+  /* Jab paragraph expanded na ho, tab sirf 4 lines dikhayega */
+  .paragraph.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 4; /* Yahan aap lines adjust kar sakte hain (e.g., 4 ya 5) */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
 }
