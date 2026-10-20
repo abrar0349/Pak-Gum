@@ -40,7 +40,7 @@ export default function QualitySection() {
       {/* Raw Material Inspection Section */}
       <div className="quality-section-block">
 
-        {/* <h2 className="quality-sub-heading"></h2> */}
+        
         <Heading Content={'Raw material Inspection'} />  
         <BulletList items={[
           "Annual surveys of guar growing areas, and daily contact with traders",

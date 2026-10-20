@@ -21,7 +21,7 @@ export default function Home() {
         {/* <Product /> */}
         {/* <Contact /> */}
         {/* <Certifications /> */}
-        {/* <HeroSlider />  */}
+        <HeroSlider /> 
        {/* <AboutProduct /> */}
        {/* <Certifications /> */}
        

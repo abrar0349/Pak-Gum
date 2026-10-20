@@ -1,115 +1,108 @@
 
 "use client";
 
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import "./HeroSlider.css";
 
-import Image1 from "@/app/Images/About.jpg";
-import Image2 from "@/app/Images/Contact.jpg";
+
+import CHK3 from "@/app/Images/facilities/Store_in_faci/CHK3.jpg"
+import CHK2 from "@/app/Images/facilities/Store_in_faci/CHK2.jpg"
+
+const slides = [
+  {
+    image: CHK3.src,
+    alt: "Pakistan Gum Industries factory",
+    title: "Quality That Builds Trust",
+    description:
+      "Delivering reliable gum solutions through quality, innovation and experience.",
+    label: "QUALITY & EXCELLENCE",
+  },
+  {
+    image: CHK2.src,
+    alt: "Pakistan Gum Industries facilities",
+    title: "Innovation in Every Detail",
+    description:
+      "Committed to excellence, consistent quality and lasting partnerships.",
+    label: "INNOVATION & GROWTH",
+  },
+];
 
 export default function HeroSlider() {
-  const slides = [
-    {
-      image: Image1.src,
-      alt: "Pakistan Gum Industries Factory 1",
-      title: "Quality That Builds Trust",
-      description:
-        "Delivering reliable gum solutions through quality, innovation and experience.",
-    },
-    {
-      image: Image2.src,
-      alt: "Pakistan Gum Industries Factory 2",
-      title: "Innovation in Every Detail",
-      description:
-        "Committed to excellence, consistent quality and lasting partnerships.",
-    },
-  ];
-
   const [currentIndex, setCurrentIndex] = useState(0);
   const [incomingIndex, setIncomingIndex] = useState(null);
   const [direction, setDirection] = useState(1);
   const [isAnimating, setIsAnimating] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
 
   const animationTimer = useRef(null);
-  const autoSlideTimer = useRef(null);
   const isAnimatingRef = useRef(false);
+  const currentIndexRef = useRef(0);
 
-  const changeSlide = (moveDirection) => {
+  const changeSlide = useCallback((moveDirection) => {
     if (isAnimatingRef.current) return;
 
     isAnimatingRef.current = true;
-    setDirection(moveDirection);
 
     const nextIndex =
-      (currentIndex + moveDirection + slides.length) % slides.length;
+      (currentIndexRef.current + moveDirection + slides.length) %
+      slides.length;
 
+    setDirection(moveDirection);
     setIncomingIndex(nextIndex);
     setIsAnimating(true);
 
     animationTimer.current = setTimeout(() => {
+      currentIndexRef.current = nextIndex;
       setCurrentIndex(nextIndex);
       setIncomingIndex(null);
       setIsAnimating(false);
       isAnimatingRef.current = false;
-    }, 750);
-  };
+    }, 800);
+  }, []);
 
-  // Left arrow: current slide exits left; new slide enters from right.
-  const prevSlide = () => changeSlide(-1);
-
-  // Right arrow: current slide exits right; new slide enters from left.
-  const nextSlide = () => changeSlide(1);
-
-  // Automatically advance every 4 seconds.
   useEffect(() => {
-    autoSlideTimer.current = setInterval(() => {
-      if (!isAnimatingRef.current) {
-        changeSlide(1);
-      }
-    }, 4000);
+    if (isPaused) return;
 
-    return () => {
-      clearInterval(autoSlideTimer.current);
-      clearTimeout(animationTimer.current);
-    };
-  }, [currentIndex]);
+    const timer = setInterval(() => {
+      changeSlide(1);
+    }, 5000);
 
-  // Pause autoplay while the visitor hovers over the slider.
-  const pauseAutoSlide = () => {
-    clearInterval(autoSlideTimer.current);
-  };
+    return () => clearInterval(timer);
+  }, [isPaused, changeSlide]);
 
-  const resumeAutoSlide = () => {
-    clearInterval(autoSlideTimer.current);
+  useEffect(() => {
+    return () => clearTimeout(animationTimer.current);
+  }, []);
 
-    autoSlideTimer.current = setInterval(() => {
-      if (!isAnimatingRef.current) {
-        changeSlide(1);
-      }
-    }, 4000);
+  const goToSlide = (index) => {
+    if (index === currentIndexRef.current || isAnimatingRef.current) {
+      return;
+    }
+
+    changeSlide(index > currentIndexRef.current ? 1 : -1);
   };
 
   return (
-    <main className="pg-section">
+    <main className="pg-hero">
       <section
-        className="pg-slider-container"
-        aria-roledescription="carousel"
+        className="pg-hero-slider"
         aria-label="Pakistan Gum Industries highlights"
-        onMouseEnter={pauseAutoSlide}
-        onMouseLeave={resumeAutoSlide}
-        onFocusCapture={pauseAutoSlide}
+        aria-roledescription="carousel"
+        onMouseEnter={() => setIsPaused(true)}
+        onMouseLeave={() => setIsPaused(false)}
+        onFocusCapture={() => setIsPaused(true)}
         onBlurCapture={(event) => {
           if (!event.currentTarget.contains(event.relatedTarget)) {
-            resumeAutoSlide();
+            setIsPaused(false);
           }
         }}
       >
-        <div className="pg-slider-box">
-          {/* Current slide */}
+        <div className="pg-hero-track">
+          {/* Current image */}
           <div
-            className={`pg-slide-layer ${
+            className={`pg-hero-layer ${
               isAnimating
-                ? direction === -1
+                ? direction === 1
                   ? "pg-exit-left"
                   : "pg-exit-right"
                 : "pg-current"
@@ -118,92 +111,98 @@ export default function HeroSlider() {
             <img
               src={slides[currentIndex].image}
               alt={slides[currentIndex].alt}
-              className="pg-slide-image"
+              className="pg-hero-image"
               draggable="false"
             />
           </div>
 
-          {/* Incoming slide */}
+          {/* Incoming image */}
           {incomingIndex !== null && (
             <div
-              className={`pg-slide-layer ${
-                direction === -1
-                  ? "pg-enter-from-right"
-                  : "pg-enter-from-left"
+              className={`pg-hero-layer ${
+                direction === 1
+                  ? "pg-enter-right"
+                  : "pg-enter-left"
               }`}
               key={incomingIndex}
             >
               <img
                 src={slides[incomingIndex].image}
                 alt={slides[incomingIndex].alt}
-                className="pg-slide-image"
+                className="pg-hero-image"
                 draggable="false"
               />
             </div>
           )}
 
-          {/* Dark overlay for a polished look */}
-          <div className="pg-slider-overlay" />
+          {/* Image overlay */}
+          <div className="pg-hero-overlay" />
 
-          {/* Text content */}
-          <div className="pg-slider-content" key={currentIndex}>
-            <span className="pg-slider-eyebrow">
-              PAKGUM INDUSTRIES
+          {/* Hero content */}
+          <div className="pg-hero-content" key={currentIndex}>
+            <span className="pg-hero-label">
+              <span className="pg-label-line" />
+              {slides[currentIndex].label}
             </span>
 
             <h1>{slides[currentIndex].title}</h1>
 
             <p>{slides[currentIndex].description}</p>
 
-            <span className="pg-slider-accent" />
+            <span className="pg-hero-accent" />
           </div>
 
-          {/* Navigation */}
+          {/* Previous button */}
           <button
             type="button"
-            className="pg-arrow-btn pg-prev"
-            onClick={prevSlide}
+            className="pg-hero-arrow pg-hero-prev"
+            onClick={() => changeSlide(-1)}
             aria-label="Previous slide"
             disabled={isAnimating}
           >
-            <span aria-hidden="true">‹</span>
+            <span aria-hidden="true">←</span>
           </button>
 
+          {/* Next button */}
           <button
             type="button"
-            className="pg-arrow-btn pg-next"
-            onClick={nextSlide}
+            className="pg-hero-arrow pg-hero-next"
+            onClick={() => changeSlide(1)}
             aria-label="Next slide"
             disabled={isAnimating}
           >
-            <span aria-hidden="true">›</span>
+            <span aria-hidden="true">→</span>
           </button>
 
-          {/* Slide indicators */}
-          <div className="pg-dots-container">
-            {slides.map((slide, index) => (
-              <button
-                key={slide.alt}
-                type="button"
-                className={`pg-dot ${
-                  index === currentIndex ? "active" : ""
-                }`}
-                onClick={() => {
-                  if (index !== currentIndex) {
-                    changeSlide(index > currentIndex ? 1 : -1);
-                  }
-                }}
-                aria-label={`Go to slide ${index + 1}`}
-                aria-current={index === currentIndex ? "true" : undefined}
-                disabled={isAnimating}
-              />
-            ))}
-          </div>
+          {/* Bottom navigation */}
+          <div className="pg-hero-bottom">
+            <div className="pg-hero-counter" aria-live="polite">
+              <span className="pg-counter-current">
+                {String(currentIndex + 1).padStart(2, "0")}
+              </span>
+              <span className="pg-counter-divider" />
+              <span className="pg-counter-total">
+                {String(slides.length).padStart(2, "0")}
+              </span>
+            </div>
 
-          <div className="pg-slider-counter" aria-live="polite">
-            <span>{String(currentIndex + 1).padStart(2, "0")}</span>
-            <span className="pg-counter-line" />
-            <span>{String(slides.length).padStart(2, "0")}</span>
+            <div className="pg-hero-dots">
+              {slides.map((slide, index) => (
+                <button
+                  key={slide.alt}
+                  type="button"
+                  className={`pg-hero-dot ${
+                    index === currentIndex ? "active" : ""
+                  }`}
+                  onClick={() => goToSlide(index)}
+                  aria-label={`Go to slide ${index + 1}`}
+                  aria-current={
+                    index === currentIndex ? "true" : undefined
+                  }
+                  disabled={isAnimating}
+                />
+              ))}
+            </div>
           </div>
         </div>
       </section>

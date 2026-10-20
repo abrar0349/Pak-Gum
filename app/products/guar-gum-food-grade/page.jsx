@@ -9,6 +9,9 @@ import ProcessSection from '../component/ProcessSection'
 // images importing 
 import split from '../../Images/facilities/Store_in_faci/Split.jpg'
 import bake_food from '../../Images/facilities/Store_in_faci/bake_food.jpg'
+import ice_cream from '../../Images/facilities/Store_in_faci/ice_cream.jpg'
+import cheese from '../../Images/facilities/Store_in_faci/cheese.jpg'
+import salad from '../../Images/facilities/Store_in_faci/salad.jpg'
 
 function page() {
   return (
@@ -28,26 +31,27 @@ function page() {
             imageSrc={bake_food.src}
             altText="Baked Food"
             title="Baked Food"
-        />
-        <Card
-            key={1}
-            imageSrc={bake_food.src}
+         />
+          <Card
+            key={2}
+            imageSrc={ice_cream.src}
             altText="Baked Food"
-            title="Baked Food"
-        />
-        <Card
-            key={1}
-            imageSrc={bake_food.src}
+            title="Ice Cream"
+          />
+          <Card
+            key={3}
+            imageSrc={cheese.src}
             altText="Baked Food"
-            title="Baked Food"
-        />
-        <Card
-            key={1}
-            imageSrc={bake_food.src}
-            altText="Baked Food"
-            title="Baked Food"
-        />
+            title="Cheese"
+          />
+          <Card
+            key={4}
+            imageSrc={salad.src}
+            altText="salad"
+            title="Salad Dressing"
+          />
       </div>
+
     </Div>
   )
 }
