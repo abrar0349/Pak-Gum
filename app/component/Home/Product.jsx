@@ -32,14 +32,14 @@ export default function Products() {
     <main className="pg-section">
       <section className="pg-products">
         
-        <div className="pg-heading">
+        {/* <div className="pg-heading">
           <span className="pg-label">OUR PRODUCTS</span>
           <h2>Quality Guar Products</h2>
           <p>
             Delivering quality, consistency and experience
             through our range of guar products.
           </p>
-        </div>
+        </div> */}
 
         <div className="pg-grid">
           {products.map((product, index) => (

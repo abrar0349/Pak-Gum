@@ -3,7 +3,6 @@
   width: 70%;
   padding: 0;
   margin-top: 10px;
-  /* margin: 0; */
 }
 
 /* Slider dimensions */
@@ -33,6 +32,7 @@
   overflow: hidden;
   will-change: transform;
   backface-visibility: hidden;
+  /* border: 20px solid salmon; */
 }
 
 .pg-hero-image {
@@ -42,6 +42,7 @@
   object-fit: cover;
   object-position: center;
   user-select: none;
+  /* border: 25px solid green; */
 }
 
 /* Dark gradient for text readability */
@@ -143,6 +144,7 @@
   color: #fff;
   animation: pgContentReveal 650ms ease both;
   animation-delay: 100ms;
+  /* border: 2px solid rebeccapurple; */
 }
 
 .pg-hero-label {
